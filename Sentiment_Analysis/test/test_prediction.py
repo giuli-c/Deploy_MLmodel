@@ -21,7 +21,7 @@ def loaded_model_and_tokenizer():
 
 @pytest.fixture(scope="module")
 def df_external_dataset():
-    data_loader = DataLoader()
+    data_loader = DataLoader("cardiffnlp/tweet_sentiment_multilingual")
     df_train, df_test = data_loader.load_data()
     return df_test
 

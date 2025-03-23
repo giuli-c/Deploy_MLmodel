@@ -14,13 +14,6 @@ class PreprocessData:
         return " ".join(new_text)
 
     @staticmethod
-    def mapping_label():
-        """
-        Restituisce la mappatura delle etichette per FastText.
-        """
-        return {0: "negative", 1: "neutral", 2: "positive"}
-
-    @staticmethod
     def check_dataset(train_df, test_df):
         df_train = train_df.to_pandas()
         df_test = test_df.to_pandas()

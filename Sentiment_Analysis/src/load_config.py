@@ -6,6 +6,7 @@ class LoadConfig:
         self.config_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", config_file))
 
     def load_config(self):
+        config = None
         try:
             with open(self.config_path, "r") as file:
                 config = yaml.safe_load(file)

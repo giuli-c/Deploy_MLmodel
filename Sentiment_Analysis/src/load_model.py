@@ -5,7 +5,7 @@ class LoadModel:
         if model_name:
             self.model_name = model_name
         else:
-            from src.load_config import LoadConfig  # importa qui per evitare cicli
+            from load_config import LoadConfig  # importa qui per evitare cicli
             config_loader = LoadConfig()
             config = config_loader.load_config()
             self.model_name = config.get("model", {}).get("pre_trained", None)

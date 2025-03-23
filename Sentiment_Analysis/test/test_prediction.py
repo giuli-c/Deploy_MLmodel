@@ -10,7 +10,7 @@ import pytest
 from load_model import LoadModel
 from predict_sentiment import SentimentTester
 from evaluation import EvaluateModel
-from data_loader import load_data
+from data_loader import DataLoader
 import pandas as pd
 
 @pytest.fixture(scope="module")

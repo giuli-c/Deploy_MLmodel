@@ -104,7 +104,7 @@ class SentimentTrainer:
         self.test_dataset = self.test_dataset.map(lambda x: {"text": PreprocessData.preprocess(x["text"])})
 
         # 2. Tokenizzazione
-        self.train_dataset = self.test_dataset.map(self.preprocess_function, batched=True)
+        self.test_dataset = self.test_dataset.map(self.preprocess_function, batched=True)
         self.train_dataset = self.train_dataset.map(self.preprocess_function, batched=True)
 
     def train(self):

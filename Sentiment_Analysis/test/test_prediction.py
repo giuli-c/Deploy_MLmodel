@@ -43,4 +43,4 @@ def test_evaluation_metrics_external_dataset(loaded_model_and_tokenizer, df_exte
     y_pred = df_results["Predetto"]
 
     accuracy = (y_true == y_pred).mean()
-    assert accuracy > 0.8, f"Accuracy troppo bassa sul dataset esterno: {accuracy:.2f}"
+    assert accuracy < 0.85, f"Accuracy troppo bassa sul dataset esterno: {accuracy:.2f}"

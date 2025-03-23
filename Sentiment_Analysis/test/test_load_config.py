@@ -14,5 +14,5 @@ def test_load_config():
     assert "dataset" in config, "Dataset mancante nel file id configurazione!"
 
 def test_load_config_None():
-    config = LoadConfig().load_config()
+    config = LoadConfig("config.yaml").load_config()
     assert config is not None, "Il file config.yaml non è stato caricato."

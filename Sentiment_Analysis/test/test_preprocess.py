@@ -12,7 +12,7 @@ def test_preprocess_replace_user_and_link():
 
 def test_preprocess_multiple_users_and_links():
     text = "Ciao @mario! Guarda http://site1.com e http://site2.it"
-    expected = "Ciao @user! Guarda http http"
+    expected = "Ciao @user! Guarda http e http"
     cleaned = PreprocessData.preprocess(text)
     assert cleaned == expected, f"Risultato atteso: '{expected}', ottenuto: '{cleaned}'"
 

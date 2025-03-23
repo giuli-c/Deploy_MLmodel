@@ -15,7 +15,7 @@ import pandas as pd
 
 @pytest.fixture(scope="module")
 def loaded_model_and_tokenizer():
-    loader = LoadModel()
+    loader = LoadModel("cardiffnlp/twitter-roberta-base-sentiment-latest")
     tokenizer, model = loader.load_model()
     return tokenizer, model
 

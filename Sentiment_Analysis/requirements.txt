@@ -1,0 +1,6 @@
+datasets
+transformers
+huggingface_hub
+scikit-learn
+pytest
+torch

@@ -1,11 +1,16 @@
 """
 CLASSE PER VERIFICARE SE IL MODELLO FA DELLE PREVISIONI CORRETTE.
 """
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
 import pytest
-from Sentiment_Analysis.src.load_model import LoadModel
-from Sentiment_Analysis.src.predict_sentiment import SentimentTester
-from Sentiment_Analysis.src.evaluation import EvaluateModel
-from datasets import load_dataset
+from load_model import LoadModel
+from predict_sentiment import SentimentTester
+from evaluation import EvaluateModel
+from data_loader import load_data
 import pandas as pd
 
 @pytest.fixture(scope="module")
@@ -16,8 +21,9 @@ def loaded_model_and_tokenizer():
 
 @pytest.fixture(scope="module")
 def df_external_dataset():
-    dataset = load_dataset("cardiffnlp/tweet_sentiment_multilingual", "italian")
-    return dataset["test"]
+    data_loader = DataLoader()
+    df_train, df_test = data_loader.load_data()
+    return df_test
 
 def test_model_can_predict_external_dataset(loaded_model_and_tokenizer, df_external_dataset):
     tokenizer, model = loaded_model_and_tokenizer

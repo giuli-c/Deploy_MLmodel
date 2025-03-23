@@ -1,4 +1,8 @@
-from Sentiment_Analysis.src.load_config import LoadConfig
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+from load_config import LoadConfig
 
 def test_load_config():
     config = LoadConfig().load_config()

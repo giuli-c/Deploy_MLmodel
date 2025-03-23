@@ -1,4 +1,8 @@
-from Sentiment_Analysis.src.preprocess_data import PreprocessData
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+from preprocess_data import PreprocessData
 
 def test_preprocess():
     text = "Questo è un TEST! http://link.com"

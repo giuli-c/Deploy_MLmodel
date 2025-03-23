@@ -1,4 +1,8 @@
-from Sentiment_Analysis.src.load_model import LoadModel
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+from load_model import LoadModel
 
 def test_model_loading():
     loader = LoadModel()

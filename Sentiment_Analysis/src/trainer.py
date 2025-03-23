@@ -99,9 +99,11 @@ class SentimentTrainer:
             None
         """
         # Il preprocessing vero e proprio lo faccio sul Dataset HuggingFace
+        # 1. Pulizia del testo
         self.train_dataset = self.train_dataset.map(lambda x: {"text": PreprocessData.preprocess(x["text"])})
         self.test_dataset = self.test_dataset.map(lambda x: {"text": PreprocessData.preprocess(x["text"])})
 
+        # 2. Tokenizzazione
         self.train_dataset = self.test_dataset.map(self.preprocess_function, batched=True)
         self.train_dataset = self.train_dataset.map(self.preprocess_function, batched=True)
 
@@ -135,4 +137,4 @@ class SentimentTrainer:
 if __name__ == "__main__":
     trainer = SentimentTrainer()
     trainer.train()
-     #trainer.push_to_hub()
+    trainer.push_to_hub()

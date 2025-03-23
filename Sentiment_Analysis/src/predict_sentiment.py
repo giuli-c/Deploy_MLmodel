@@ -1,5 +1,5 @@
 import pandas as pd
-from src.predictor import SentimentPredictor
+from predictor import SentimentPredictor
 
 class SentimentTester:
     def __init__(self, model, tokenizer, test_dataset):

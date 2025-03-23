@@ -47,7 +47,10 @@ class SentimentTrainer:
             logging_steps=10,
             report_to="none",
             load_best_model_at_end=True,
-            metric_for_best_model="accuracy"
+            metric_for_best_model="accuracy",
+            push_to_hub=True,
+            hub_model_id="giuli-c/sentiment-model",
+            hub_strategy="end" # Il modello sarà caricato su H.F. solo alla fine del training.
         )
 
         callbacks = [AccuracyThresholdCallback()]
@@ -119,22 +122,22 @@ class SentimentTrainer:
         """
         self.trainer.train()
 
-    def push_to_hub(self):
-        """
-        Pushes the current state of the trainer to the hub.
+    # def push_to_hub(self):
+    #     """
+    #     Pushes the current state of the trainer to the hub.
 
-        This function calls the `push_to_hub` method of the `trainer` object.
+    #     This function calls the `push_to_hub` method of the `trainer` object.
 
-        Parameters:
-            None
+    #     Parameters:
+    #         None
 
-        Returns:
-            None
-        """
-        self.trainer.push_to_hub()
+    #     Returns:
+    #         None
+    #     """
+    #     self.trainer.push_to_hub()
 
 
 if __name__ == "__main__":
     trainer = SentimentTrainer()
     trainer.train()
-    trainer.push_to_hub()
+    #trainer.push_to_hub()
